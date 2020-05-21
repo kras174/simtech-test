@@ -10,6 +10,10 @@ export const usersReducer = (state, action) => {
       return {
         ...state,
         users: [...state.users, action.payload],
+        departments:
+          state.departments.indexOf(action.payload.department) !== -1
+            ? [...state.departments]
+            : [...state.departments, action.payload.department],
       };
     case REMOVE_USER:
       return {

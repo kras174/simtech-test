@@ -13,7 +13,7 @@ export const UsersState = ({ children }) => {
         name: "Valeriy Ivanov",
         email: "vivanov@simtech.ru",
         phone: 123456,
-        department: "it",
+        department: "It",
       },
       {
         id: 2,
@@ -21,7 +21,7 @@ export const UsersState = ({ children }) => {
         name: "Vasiliy Pupkin",
         email: "vpupkin@simtech.ru",
         phone: 123456,
-        department: "it",
+        department: "Housekeeping",
       },
       {
         id: 3,
@@ -29,9 +29,26 @@ export const UsersState = ({ children }) => {
         name: "Alexey Petrov",
         email: "apterov@simtech.ru",
         phone: 123456,
-        department: "it",
+        department: "Service",
+      },
+      {
+        id: 4,
+        avatar: "",
+        name: "Misha Petrov",
+        email: "mpterov@simtech.ru",
+        phone: 123456,
+        department: "Service",
+      },
+      {
+        id: 5,
+        avatar: "",
+        name: "Alexander Smirnov",
+        email: "asmirnov@simtech.ru",
+        phone: 123456,
+        department: "Housekeeping",
       },
     ],
+    departments: ["It", "Housekeeping", "Service"],
     loading: false,
   };
   const [state, dispatch] = useReducer(usersReducer, initialState);
@@ -76,6 +93,7 @@ export const UsersState = ({ children }) => {
         fetchUsers,
         addUser,
         removeUser,
+        departments: state.departments,
         loading: state.loading,
         users: state.users,
       }}
