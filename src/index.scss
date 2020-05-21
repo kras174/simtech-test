@@ -13,14 +13,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
+.addUserForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 5px;
+  margin: 0 auto;
+}
 .user {
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  strong {
-    margin-right: 1rem;
+  max-width: 200px;
+  p {
+    margin: 0;
   }
 }
 

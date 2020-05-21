@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 import { UsersContext } from "./usersContext";
 import { usersReducer } from "./usersReducer";
 
-import { SHOW_LOADER, FETCH_USERS, REMOVE_USER } from "../types";
+import { SHOW_LOADER, FETCH_USERS, ADD_USER, REMOVE_USER } from "../types";
 
 export const UsersState = ({ children }) => {
   const initialState = {
@@ -44,6 +44,27 @@ export const UsersState = ({ children }) => {
     dispatch({ type: FETCH_USERS });
   };
 
+  const addUser = (name, email, phone, department) => {
+    const user = {
+      name,
+      email,
+      phone,
+      department,
+    };
+
+    try {
+      // add user to API here
+      const payload = {
+        ...user,
+        id: state.users.length + 1,
+      };
+
+      dispatch({ type: ADD_USER, payload });
+    } catch (e) {
+      throw new Error(e.message);
+    }
+  };
+
   const removeUser = (id) => {
     // add delete user from API here
     dispatch({ type: REMOVE_USER, payload: id });
@@ -53,6 +74,7 @@ export const UsersState = ({ children }) => {
     <UsersContext.Provider
       value={{
         fetchUsers,
+        addUser,
         removeUser,
         loading: state.loading,
         users: state.users,

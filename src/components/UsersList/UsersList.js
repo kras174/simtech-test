@@ -22,10 +22,7 @@ export const UsersList = () => {
           {users.map((user, id) => (
             <CSSTransition key={id} classNames={user} timeout={800}>
               <li className="list-group-item user">
-                <div>
-                  <strong>{user.name}</strong>
-                  <small>{user.email}</small>
-                </div>
+                <p>{user.name}</p>
                 <button
                   type="button"
                   className="btn btn-outline-danger btn-sm"
